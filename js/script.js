@@ -9,7 +9,12 @@ class Sprite {
     this.image = new Image()
     this.image.src = ''
   } 
+  draw() {
+    c.drawImage(this.image, this.position.x, this.position.y)
+  }
 }
+
+const backgroundLevel1 = new Sprite({ position: { x:0, y:0, } })
 
 const player = new Player()
 
