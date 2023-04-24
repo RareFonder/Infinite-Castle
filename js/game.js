@@ -48,9 +48,12 @@ const player = new Player({
 
 const doors = [
   new Sprite({
-    position: { x: 0, y: 0, },
-    imageSrc: '',
+    position: { x: 767, y: 271, },
+    imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/doorOpen.png',
     frameRate: 5,
+    frameBuffer: 5,
+    loop: false,
+    autoplay: false,
   })
 ]
 
