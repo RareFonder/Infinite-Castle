@@ -19,9 +19,6 @@ class Player extends Sprite {
     this.applyGravity()
 
     this.updateHitbox()
-    // Render hitbox
-    c.fillStyle = 'rgba(255, 0, 0, 0.4)'
-    c.fillRect(this.hitbox.position.x, this.hitbox.position.y, this.hitbox.width, this.hitbox.height)
 
     this.checkForVerticalCollisions()
   }
