@@ -4,8 +4,8 @@
 3. Gravity ✔️
 4. Player movement ✔️
 5. Collision blocks ✔️
-6. Collision detection --- Current
-7. Sprite animation
+6. Collision detection ✔️
+7. Sprite animation --- Current
 8. Hitbox implementation
 9. Sprite swapping
 10. Entering doors

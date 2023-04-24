@@ -13,8 +13,8 @@ Array.prototype.createObjectsFrom2D = function () {
   this.forEach((row, yIndex) => {
     row.forEach((symbol, xIndex) => {
       if (symbol === 292) {
-        
-        // Drawing collision blocks
+
+        // Creating collision blocks
         objects.push(new CollisionBlock({ 
           position: { x: xIndex * 64, y: yIndex * 64, } 
         }))
