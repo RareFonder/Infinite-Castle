@@ -47,7 +47,7 @@ const player = new Player({
       frameRate: 8, 
       frameBuffer: 4, 
       loop: false, 
-      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/runLeft.png',
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/enterDoor.png',
     },
   },
 })
