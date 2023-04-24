@@ -18,8 +18,13 @@ class Player {
 
   update() {
     this.position.x += this.velocity.x
+    
+    this.checkForHorizontalCollisions()
+    this.applyGravity()
+    this.checkForVerticalCollisions()
+  }
 
-    // Horizontal collisions
+  checkForHorizontalCollisions() {
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
       // Checking if collision exists
@@ -40,12 +45,14 @@ class Player {
         } 
       }
     }
+  }
 
-    // Gravity
+  applyGravity() {
     this.velocity.y += this.gravity
     this.position.y += this.velocity.y
+  }
 
-    // Vertical collisions
+  checkForVerticalCollisions() {
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
       // Checking if collision exists
