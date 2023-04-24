@@ -1,3 +1,4 @@
+// User input
 window.addEventListener('keydown', (event) => {
   console.log(event)
   switch (event.key) {
