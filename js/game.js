@@ -134,7 +134,7 @@ let levels = {
 
       background = new Sprite({ 
         position: { x: 0, y: 0, }, 
-        imageSrc: '',
+        imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/backgroundLevel3.png',
       })
 
       doors = [
