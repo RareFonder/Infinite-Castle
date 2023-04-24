@@ -29,19 +29,19 @@ const player = new Player({
       frameRate: 11, 
       frameBuffer: 4, 
       loop: true, 
-      imageSrc: '',
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/idleLeft.png',
     },
     runRight: { 
       frameRate: 8, 
       frameBuffer: 4,
       loop: true, 
-      imageSrc: '',
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/runRight.png',
     },
     runLeft: { 
       frameRate: 8, 
       frameBuffer: 4, 
       loop: true, 
-      imageSrc: '',
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/runLeft.png',
     },
   },
 })
