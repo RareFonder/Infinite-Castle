@@ -12,7 +12,7 @@ class Sprite {
     this.frameRate = frameRate
     this.currentFrame = 0
     this.elaspedFrames = 0
-    this.frameBuffer = 2
+    this.frameBuffer = 4
   }  
   
   draw() {

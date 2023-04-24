@@ -6,8 +6,8 @@
 5. Collision blocks ✔️
 6. Collision detection ✔️
 7. Sprite animation ✔️
-8. Hitbox implementation --- Current
-9. Sprite swapping
+8. Hitbox implementation ✔️
+9. Sprite swapping --- Current
 10. Entering doors
 11. Change levels
 More...
