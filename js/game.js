@@ -16,7 +16,8 @@ const backgroundLevel1 = new Sprite({
 // Creating player 
 const player = new Player({ 
   collisionBlocks, 
-  imageSrc: '', 
+  imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/idle.png',
+  frameRate: 11,
 })
 
 const keys = { 
