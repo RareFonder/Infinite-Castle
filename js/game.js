@@ -46,6 +46,14 @@ const player = new Player({
   },
 })
 
+const doors = [
+  new Sprite({
+    position: { x: 0, y: 0, },
+    imageSrc: '',
+    frameRate: 5,
+  })
+]
+
 const keys = { 
   w: {pressed: false}, 
   a: {pressed: false}, 
@@ -57,11 +65,16 @@ function animate() {
   window.requestAnimationFrame(animate)
 
   backgroundLevel1.draw()
-  // Render collision blocks
-  // collisionBlocks.forEach(collisionBlock => {
+  // Render collision blocks (Not needed for now)
+  // collisionBlocks.forEach((collisionBlock) => {
   //   collisionBlock.draw()
   // })
 
+  // Render doors
+  doors.forEach((door) => {
+    door.draw()
+  })  
+  
   // User input, player animations
   player.velocity.x = 0
   if (keys.d.pressed) {
