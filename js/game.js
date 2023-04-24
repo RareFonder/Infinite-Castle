@@ -14,7 +14,10 @@ const backgroundLevel1 = new Sprite({
 })
 
 // Creating player 
-const player = new Player({ collisionBlocks })
+const player = new Player({ 
+  collisionBlocks, 
+  imageSrc: '', 
+})
 
 const keys = { 
   w: {pressed: false}, 
