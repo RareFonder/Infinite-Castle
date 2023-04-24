@@ -43,6 +43,12 @@ const player = new Player({
       loop: true, 
       imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/runLeft.png',
     },
+    enterDoor: { 
+      frameRate: 8, 
+      frameBuffer: 4, 
+      loop: false, 
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/runLeft.png',
+    },
   },
 })
 
@@ -77,22 +83,8 @@ function animate() {
   doors.forEach((door) => {
     door.draw()
   })  
-  
-  // User input, player animations
-  player.velocity.x = 0
-  if (keys.d.pressed) {
-    player.switchSprite('runRight')
-    player.velocity.x = 5
-    player.lastDirection = 'right'
-  } else if (keys.a.pressed) {
-    player.switchSprite('runLeft')
-    player.velocity.x = -5
-    player.lastDirection = 'left'
-  } else { 
-    if (player.lastDirection === 'left') player.switchSprite('idleLeft')
-    else player.switchSprite('idleRight')
-  }
 
+  player.handleInput(keys)
   player.draw()
   player.update()
 }
