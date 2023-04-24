@@ -9,16 +9,3 @@ Array.prototype.parse2D = function() {
   }
   return rows
 }
-
-const collisionBlocks = []
-
-const parsedCollisions = collisionsLevel1.parse2D()
-parsedCollisions.forEach((row, yIndex) => {
-  row.forEach((symbol, xIndex) => {
-    if (symbol === 292) {
-      collisionBlocks.push(new CollisionBlock({ 
-        position: { x: xIndex * 64, y: yIndex * 64, } 
-      }))
-    }
-  })  
-})
