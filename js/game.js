@@ -18,6 +18,32 @@ const player = new Player({
   collisionBlocks, 
   imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/idle.png',
   frameRate: 11,
+  animations: {
+    idleRight: { 
+      frameRate: 11, 
+      frameBuffer: 4, 
+      loop: true, 
+      imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/idle.png',
+    },
+    idleLeft: { 
+      frameRate: 11, 
+      frameBuffer: 4, 
+      loop: true, 
+      imageSrc: '',
+    },
+    runRight: { 
+      frameRate: 8, 
+      frameBuffer: 4,
+      loop: true, 
+      imageSrc: '',
+    },
+    runLeft: { 
+      frameRate: 8, 
+      frameBuffer: 4, 
+      loop: true, 
+      imageSrc: '',
+    },
+  },
 })
 
 const keys = { 
@@ -26,7 +52,7 @@ const keys = {
   d: {pressed: false},
 }
 
-// Drawing and updating the player, background and collisions
+// Drawing, updating and animating the player, background and collisions
 function animate() {
   window.requestAnimationFrame(animate)
 
@@ -35,9 +61,20 @@ function animate() {
     collisionBlock.draw()
   })
 
+  // User input, player animations
   player.velocity.x = 0
-  if (keys.d.pressed) player.velocity.x = 5
-  else if (keys.a.pressed) player.velocity.x = -5
+  if (keys.d.pressed) {
+    player.switchSprite('runRight')
+    player.velocity.x = 5
+    player.lastDirection = 'right'
+  } else if (keys.a.pressed) {
+    player.switchSprite('runLeft')
+    player.velocity.x = -5
+    player.lastDirection = 'left'
+  } else { 
+    if (player.lastDirection === 'left') player.switchSprite('idleLeft')
+    else player.switchSprite('idleRight')
+  }
 
   player.draw()
   player.update()
