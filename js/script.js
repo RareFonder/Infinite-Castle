@@ -17,5 +17,10 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
-  
+  console.log(event)
+  switch (event.key) {
+    case 'w':
+      player.velocity.y = -10
+      break
+  }
 })
