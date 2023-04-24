@@ -14,13 +14,14 @@ const backgroundLevel1 = new Sprite({
 })
 
 // Creating player 
-const player = new Player()
+const player = new Player({ collisionBlocks })
 
 const keys = { 
   w: {pressed: false}, 
   a: {pressed: false}, 
   d: {pressed: false},
 }
+
 // Drawing and updating the player, background and collisions
 function animate() {
   window.requestAnimationFrame(animate)
