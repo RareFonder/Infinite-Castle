@@ -1,9 +1,9 @@
 class Player {
   constructor({ collisionBlocks = [] }) {
-    this.position = { x: 100, y: 100, }
+    this.position = { x: 200, y: 200, }
     this.velocity = { x: 0, y: 0, }
-    this.width = 100
-    this.height = 100
+    this.width = 25
+    this.height = 25
     this.sides = {
       bottom: this.position.y + this.height
     }
@@ -22,33 +22,51 @@ class Player {
     // Horizontal collisions
     for (let i = 0; i < this.collisionBlocks.length; i++) {
       const collisionBlock = this.collisionBlocks[i]
-
       // Checking if collision exists
       if (this.position.x <= collisionBlock.position.x + collisionBlock.width && 
         this.position.x + this.width >= collisionBlock.position.x &&
         this.position.y + this.height >= collisionBlock.position.y &&
         this.position.y <= collisionBlock.position.y + collisionBlock.height
       ) {
-
-        // Collision on the left of player
-        if (this.velocity.x < -1) {
+        // Left of player
+        if (this.velocity.x < 0) {
           this.position.x = collisionBlock.position.x + collisionBlock.width + 0.01
           break
         }
-        // On the right of player
-        if (this.velocity.x > 1) {
+        // Right of player
+        if (this.velocity.x > 0) {
           this.position.x = collisionBlock.position.x - this.width - 0.01
           break
         } 
       }
     }
 
+    // Gravity
+    this.velocity.y += this.gravity
     this.position.y += this.velocity.y
-    this.sides.bottom = this.position.y + this.height 
 
-    // Check if player is touching bottom of canvas
-    if (this.sides.bottom + this.velocity.y < canvas.height) {
-      this.velocity.y += this.gravity
-    } else this.velocity.y = 0
+    // Vertical collisions
+    for (let i = 0; i < this.collisionBlocks.length; i++) {
+      const collisionBlock = this.collisionBlocks[i]
+      // Checking if collision exists
+      if (this.position.x <= collisionBlock.position.x + collisionBlock.width && 
+        this.position.x + this.width >= collisionBlock.position.x &&
+        this.position.y + this.height >= collisionBlock.position.y &&
+        this.position.y <= collisionBlock.position.y + collisionBlock.height
+      ) {
+        // Top of player
+        if (this.velocity.y < 0) {
+          this.velocity.y = 0
+          this.position.y = collisionBlock.position.y + collisionBlock.height + 0.01
+          break
+        }
+        // Bottom of player 
+        if (this.velocity.y > 0) {
+          this.velocity.y = 0
+          this.position.y = collisionBlock.position.y - this.height - 0.01
+          break
+        } 
+      }
+    }
   }
 }
