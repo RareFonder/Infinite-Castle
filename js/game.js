@@ -54,10 +54,16 @@ const player = new Player({
           opacity: 1,
           onComplete: () => {
             level++
+            if (level === 4) level = 1
             levels[level].init()
-            gsap.to(overlay, {
-              opacity: 0
-            })
+            player.switchSprite('idleRight')
+
+            setTimeout(() => {
+              player.preventInput = false
+              gsap.to(overlay, {
+                opacity: 0
+              })
+            }, 1000)
           }
         })
       }
@@ -72,6 +78,7 @@ let levels = {
       parsedCollisions = collisionsLevel1.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
+      if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({ 
         position: { x: 0, y: 0, }, 
@@ -97,6 +104,7 @@ let levels = {
       player.collisionBlocks = collisionBlocks
       player.position.x = 96
       player.position.y = 140
+      if (player.currentAnimation) player.currentAnimation.isActive = false
 
       background = new Sprite({ 
         position: { x: 0, y: 0, }, 
@@ -114,7 +122,33 @@ let levels = {
         })
       ]
     }
-  }
+  },
+  3: {
+    init: () => {
+      parsedCollisions = collisionsLevel3.parse2D()
+      collisionBlocks = parsedCollisions.createObjectsFrom2D()
+      player.collisionBlocks = collisionBlocks
+      player.position.x = 750
+      player.position.y = 230
+      if (player.currentAnimation) player.currentAnimation.isActive = false
+
+      background = new Sprite({ 
+        position: { x: 0, y: 0, }, 
+        imageSrc: '',
+      })
+
+      doors = [
+        new Sprite({
+          position: { x: 176, y: 335, },
+          imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/doorOpen.png',
+          frameRate: 5,
+          frameBuffer: 5,
+          loop: false,
+          autoplay: false,
+        }),
+      ]
+    },
+  },
 }
 
 const keys = { 
@@ -132,10 +166,6 @@ function animate() {
   window.requestAnimationFrame(animate)
 
   background.draw()
-  // Render collision blocks (Not needed for now)
-  // collisionBlocks.forEach((collisionBlock) => {
-  //   collisionBlock.draw()
-  // })
 
   // Render doors
   doors.forEach((door) => {
