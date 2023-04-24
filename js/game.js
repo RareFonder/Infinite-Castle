@@ -92,18 +92,20 @@ let levels = {
   },
   2: {
     init: () => {
-      parsedCollisions = collisionsLevel1.parse2D()
+      parsedCollisions = collisionsLevel2.parse2D()
       collisionBlocks = parsedCollisions.createObjectsFrom2D()
       player.collisionBlocks = collisionBlocks
+      player.position.x = 96
+      player.position.y = 140
 
       background = new Sprite({ 
         position: { x: 0, y: 0, }, 
-        imageSrc: '',
+        imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/backgroundLevel2.png',
       })
 
       doors = [
         new Sprite({
-          position: { x: 782, y: 336, },
+          position: { x: 772, y: 335, },
           imageSrc: 'https://stackblitz.com/files/web-platform-aygtwk/github/RareFonder/Kings-and-Pigs/main/doorOpen.png',
           frameRate: 5,
           frameBuffer: 5,
